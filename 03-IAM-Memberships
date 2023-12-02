@@ -1,0 +1,39 @@
+### Defining which member, belongs to which group ###
+resource "aws_iam_user_group_membership" "Directors" {
+  user = aws_iam_user.Director01.name
+
+  groups = [
+    aws_iam_group.Directors.name,
+    aws_iam_group.Officers.name,
+  ]
+}
+
+### Officers are members of Officers and Managers Group ###
+resource "aws_iam_user_group_membership" "Officers" {
+  user = aws_iam_user.Officer01.name
+
+  groups = [
+    aws_iam_group.Officers.name,
+    aws_iam_group.Managers.name,
+  ]
+}
+
+### Managers are members of Manager and Associates Group ###
+resource "aws_iam_user_group_membership" "Managers" {
+  user = aws_iam_user.Manager01.name
+
+  groups = [
+    aws_iam_group.Managers.name,
+    aws_iam_group.Associates.name,
+  ]
+}
+
+
+resource "aws_iam_user_group_membership" "Associates" {
+  user = aws_iam_user.Associate01.name
+
+  groups = [
+    aws_iam_group.Associates.name,
+    aws_iam_group.Trainees.name,
+  ]
+}
