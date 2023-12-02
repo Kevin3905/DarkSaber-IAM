@@ -1,0 +1,20 @@
+resource "aws_iam_user" "Director01" {
+  name = "Director01"
+}
+
+resource "aws_iam_user" "Officer01" {
+  name = "Officer01"
+}
+
+resource "aws_iam_user" "Manager01" {
+  name = "Manager01"
+}
+
+resource "aws_iam_user" "Associate01" {
+  name = "Associate01"
+}
+
+resource "aws_iam_user" "Trainee01" {
+  name = "Trainee01"
+}
+
