@@ -1,0 +1,69 @@
+### I AM POLICY - Directors Level Policy ###
+resource "aws_iam_policy" "AdministratorAccess" {
+  name        = "AdministratorAccess"
+  path        = "/"
+  description = "Directors Policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Action   = "*"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+### I AM POLICY - Officer Level Policy###
+resource "aws_iam_policy" "AdministratorAccess-Amplify" {
+  name        = "AdministratorAccess-Amplify"
+  path        = "/"
+  description = "Officers Policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Action   = "*"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+### I AM POLICY - Manager Level Policy###
+resource "aws_iam_policy" "AmazonAppStreamReadOnlyAccess" {
+  name        = "AmazonAppStreamReadOnlyAccess"
+  path        = "/"
+  description = "Managers Policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Action   = "*"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
