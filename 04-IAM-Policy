@@ -67,3 +67,48 @@ resource "aws_iam_policy" "AmazonAppStreamReadOnlyAccess" {
   })
 }
 
+### I AM POLICY - Associate Level Policy###
+resource "aws_iam_policy" "AmazonECS_FullAccess" {
+  name        = "AmazonECS_FullAccess"
+  path        = "/"
+  description = "Managers Policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Action   = "*"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+### I AM POLICY - Trainee Level Policy###
+resource "aws_iam_policy" "AmazonElasticFileSystemClientFullAccess" {
+  name        = "AmazonElasticFileSystemClientFullAccess"
+  path        = "/"
+  description = "Managers Policy"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:Describe*",
+        ]
+        Effect   = "Allow"
+        Action   = "*"
+        Resource = "*"
+      },
+    ]
+  })
+}
